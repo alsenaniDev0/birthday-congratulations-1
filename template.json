@@ -120,22 +120,13 @@
             }
         },
         {
-            "defaultValue": "يسعدنا دعوتكم لحضور",
-            "key": "smallTitle",
-            "minLength": 3,
-            "required": true,
-            "maxLength": 80,
-            "label": "النص العلوي",
-            "type": "text"
-        },
-        {
             "type": "text",
             "label": "عنوان الدعوة",
             "maxLength": 80,
             "required": true,
             "minLength": 3,
             "key": "title",
-            "defaultValue": "حفل يوم الميلاد"
+            "defaultValue": "يوم ميلاد سعيد"
         },
         {
             "type": "text",
