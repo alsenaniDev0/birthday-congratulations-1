@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="birthday-page theme-{{gender}} show-person-{{showPersoneImage}} show-icon-{{showIcon}}">
+
+        <div class="page-pattern" aria-hidden="true"></div>
+
+        <div class="bubble bubble-1" aria-hidden="true"></div>
+        <div class="bubble bubble-2" aria-hidden="true"></div>
+        <div class="bubble bubble-3" aria-hidden="true"></div>
+        <div class="bubble bubble-4" aria-hidden="true"></div>
+        <div class="bubble bubble-5" aria-hidden="true"></div>
+
+        <section class="birthday-card">
+
+            <div class="card-decoration card-decoration-1" aria-hidden="true">🎈</div>
+            <div class="card-decoration card-decoration-2" aria-hidden="true">✨</div>
+
+            <div class="top-label">
+                <span class="top-icon">{{icon}}</span>
+                <strong>{{smallTitle}}</strong>
+            </div>
+
+            <div class="photo-wrap">
+                <div class="photo-ring">
+                    <img src="{{personeImage}}" alt="{{personName}}" />
+                </div>
+
+                <div class="age-badge">
+                    <span>{{age}}</span>
+                    <small>عام</small>
+                </div>
+            </div>
+
+            <p class="mini-title">{{message}}</p>
+
+            <h1 class="person-name">
+                {{personName}}
+            </h1>
+
+            <p class="title">
+                {{title}}
+            </p>
+
+            <div class="wish-box">
+                <span>🎉</span>
+                <p>
+                    يوم جميل نحتفل فيه بفرحة تكبر معنا، وذكرى سعيدة تبقى في القلب.
+                </p>
+            </div>
+
+            <section class="feelings-section" data-feature="feelings" data-approval-mode="manual"
+                data-prevent-duplicate="true" data-rate-limit-minutes="5">
+                <div class="feelings-header">
+                    <span class="feelings-icon">💌</span>
+                    <div>
+                        <h2>شارك مشاعرك</h2>
+                        <p>اكتب رسالة جميلة لهذا الشخص الجميل</p>
+                    </div>
+                </div>
+
+                <form class="feelings-form" data-feelings-form>
+                    <div class="form-group">
+                        <label for="feelingName">اسمك</label>
+                        <input id="feelingName" name="name" type="text" placeholder="اكتب اسمك" maxlength="50"
+                            required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feelingMessage">رسالتك</label>
+                        <textarea id="feelingMessage" name="message" placeholder="اكتب تهنئتك هنا..." maxlength="240"
+                            rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="feelings-btn">
+                        إرسال المشاعر
+                    </button>
+
+                    <p class="feelings-note">
+                        سيتم عرض الرسالة بعد مراجعتها من صاحب التصميم.
+                    </p>
+                </form>
+            </section>
+
+            <div class="bottom-icons" aria-hidden="true">
+                <span>🎈</span>
+                <span>🎁</span>
+                <span>🧁</span>
+            </div>
+
+        </section>
+
+    </main>
+</body>
+
+</html>

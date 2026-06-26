@@ -1,0 +1,189 @@
+{
+    "id": "birthday-congratulations-1",
+    "name": "تهنئة يوم الميلاد",
+    "version": "1.0.0",
+    "schemaVersion": "1.0.0",
+    "type": "custom",
+    "language": "ar",
+    "direction": "rtl",
+    "html": "index.html",
+    "css": "style.css",
+    "fields": [
+        {
+            "required": true,
+            "key": "gender",
+            "defaultValue": "boy",
+            "label": "نوع التصميم",
+            "type": "select",
+            "options": [
+                {
+                    "value": "boy",
+                    "label": "ولد"
+                },
+                {
+                    "label": "بنت",
+                    "value": "girl"
+                }
+            ]
+        },
+        {
+            "key": "showPersoneImage",
+            "label": "إظهار صورة الشخص",
+            "type": "select",
+            "formTab": "design",
+            "group": "visibility",
+            "required": true,
+            "defaultValue": "yes",
+            "options": [
+                {
+                    "label": "نعم",
+                    "value": "yes"
+                },
+                {
+                    "label": "لا",
+                    "value": "no"
+                }
+            ],
+            "width": "half"
+        },
+        {
+            "label": "صورة الشخص",
+            "type": "image",
+            "defaultValue": "https://placehold.co/420x420/fde68a/92400e?text=Person",
+            "key": "personeImage",
+            "required": true,
+            "hint": "ارفع صورة واضحة للشخص",
+            "visibleWhen": {
+                "field": "showPersoneImage",
+                "equals": "yes"
+            },
+            "requiredWhen": {
+                "field": "showPersoneImage",
+                "equals": "yes"
+            }
+        },
+        {
+            "key": "showIcon",
+            "label": "إظهار الأيقونة",
+            "type": "select",
+            "formTab": "design",
+            "group": "visibility",
+            "required": true,
+            "defaultValue": "yes",
+            "options": [
+                {
+                    "label": "نعم",
+                    "value": "yes"
+                },
+                {
+                    "label": "لا",
+                    "value": "no"
+                }
+            ],
+            "width": "half"
+        },
+        {
+            "key": "icon",
+            "required": true,
+            "defaultValue": "🎂",
+            "label": "الأيقونة",
+            "type": "icon",
+            "options": [
+                {
+                    "value": "🎂",
+                    "label": "🎂"
+                },
+                {
+                    "value": "🎈",
+                    "label": "🎈"
+                },
+                {
+                    "label": "🧁",
+                    "value": "🧁"
+                },
+                {
+                    "label": "🎁",
+                    "value": "🎁"
+                },
+                {
+                    "label": "✨",
+                    "value": "✨"
+                }
+            ],
+            "visibleWhen": {
+                "field": "showIcon",
+                "equals": "yes"
+            },
+            "requiredWhen": {
+                "field": "showIcon",
+                "equals": "yes"
+            }
+        },
+        {
+            "defaultValue": "يسعدنا دعوتكم لحضور",
+            "key": "smallTitle",
+            "minLength": 3,
+            "required": true,
+            "maxLength": 80,
+            "label": "النص العلوي",
+            "type": "text"
+        },
+        {
+            "type": "text",
+            "label": "عنوان الدعوة",
+            "maxLength": 80,
+            "required": true,
+            "minLength": 3,
+            "key": "title",
+            "defaultValue": "حفل يوم الميلاد"
+        },
+        {
+            "type": "text",
+            "label": "اسم الشخص",
+            "maxLength": 40,
+            "placeholder": "مثال: محمد",
+            "minLength": 2,
+            "required": true,
+            "key": "personName",
+            "defaultValue": "محمد",
+            "designControls": {
+                "font": {
+                    "enabled": true,
+                    "label": "خط اسم الشخص",
+                    "selector": ".person-name"
+                }
+            }
+        },
+        {
+            "type": "text",
+            "label": "العمر",
+            "key": "age",
+            "defaultValue": "1",
+            "required": true,
+            "placeholder": "مثال: 1",
+            "minLength": 1,
+            "maxLength": 2,
+            "pattern": "^[0-9]+$",
+            "patternMessage": "الرجاء إدخال رقم صحيح"
+        },
+        {
+            "key": "message",
+            "required": true,
+            "minLength": 5,
+            "defaultValue": "نحتفل معكم بأجمل يوم",
+            "maxLength": 160,
+            "type": "textarea",
+            "label": "نص التهنئة"
+        }
+    ],
+    "features": {
+        "feelings": {
+            "enabled": true,
+            "approvalMode": "manual",
+            "preventDuplicate": true,
+            "rateLimitMinutes": 5,
+            "title": "شارك مشاعرك",
+            "description": "اكتب رسالة جميلة لهذا الشخص الجميل"
+        }
+    }
+}
