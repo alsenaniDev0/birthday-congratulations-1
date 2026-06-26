@@ -369,21 +369,15 @@ body {
 .feelings-section {
     margin: 18px auto 0;
     padding: 16px;
-
     max-width: 410px;
-
     position: relative;
     z-index: 3;
-
     border-radius: 28px;
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.86));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.86));
     border: 1px solid rgba(226, 232, 240, 0.95);
-
     box-shadow:
         0 16px 34px rgba(15, 23, 42, 0.1),
         inset 0 0 0 1px rgba(255, 255, 255, 0.65);
-
     text-align: start;
 }
 
@@ -391,7 +385,6 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-
     margin-bottom: 14px;
 }
 
@@ -399,21 +392,16 @@ body {
     width: 48px;
     min-width: 48px;
     height: 48px;
-
     display: grid;
     place-items: center;
-
     border-radius: 18px;
     background: var(--soft);
-
     font-size: 24px;
-
     box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
 }
 
 .feelings-header h2 {
     margin: 0;
-
     color: var(--main-dark);
     font-size: 18px;
     font-weight: 950;
@@ -422,16 +410,26 @@ body {
 
 .feelings-header p {
     margin: 3px 0 0;
-
     color: #64748b;
     font-size: 12px;
     font-weight: 800;
     line-height: 1.7;
 }
 
-.feelings-form {
+.interaction-card {
     display: grid;
     gap: 10px;
+}
+
+.feeling-notice {
+    margin: 0 0 4px;
+    padding: 10px 12px;
+    border-radius: 16px;
+    background: var(--soft);
+    color: var(--main-dark);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.8;
 }
 
 .form-group {
@@ -445,93 +443,106 @@ body {
     font-weight: 900;
 }
 
-.form-group input,
-.form-group textarea {
+.interaction-input,
+.interaction-textarea {
     width: 100%;
     border: 1px solid rgba(203, 213, 225, 0.95);
     outline: none;
-
     border-radius: 18px;
     background: #fff;
-
     color: var(--text);
     font-family: inherit;
     font-size: 13px;
     font-weight: 700;
-
     box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
-
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease,
         transform 0.2s ease;
 }
 
-.form-group input {
+.interaction-input {
     height: 46px;
     padding: 0 14px;
 }
 
-.form-group textarea {
+.interaction-textarea {
     min-height: 96px;
     padding: 12px 14px;
     resize: vertical;
     line-height: 1.8;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
+.interaction-input::placeholder,
+.interaction-textarea::placeholder {
     color: #94a3b8;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.interaction-input:focus,
+.interaction-textarea:focus {
     border-color: var(--main);
     box-shadow:
-        0 0 0 4px color-mix(in srgb, var(--main) 16%, transparent),
+        0 0 0 4px rgba(2, 132, 199, 0.12),
         0 10px 20px rgba(15, 23, 42, 0.08);
     transform: translateY(-1px);
 }
 
-.feelings-btn {
+.interaction-submit {
     width: 100%;
     min-height: 48px;
     margin-top: 2px;
-
     border: 0;
     border-radius: 999px;
-
     background: linear-gradient(135deg, var(--main), var(--main-dark));
     color: #fff;
-
     cursor: pointer;
-
     font-family: inherit;
     font-size: 14px;
     font-weight: 950;
-
     box-shadow: 0 14px 28px rgba(15, 23, 42, 0.18);
-
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease,
         filter 0.2s ease;
 }
 
-.feelings-btn:hover {
+.interaction-submit:hover {
     transform: translateY(-2px);
     filter: brightness(1.04);
     box-shadow: 0 18px 34px rgba(15, 23, 42, 0.22);
 }
 
-.feelings-note {
-    margin: 2px 0 0;
-
-    color: #64748b;
-    font-size: 11px;
-    font-weight: 800;
+.interaction-message {
+    margin: 0;
+    min-height: 18px;
+    color: var(--main-dark);
+    font-size: 12px;
+    font-weight: 900;
     line-height: 1.7;
     text-align: center;
+}
+
+.feelings-list {
+    margin-top: 14px;
+    display: grid;
+    gap: 10px;
+}
+
+.feelings-list:empty {
+    display: none;
+}
+
+/* This styles any item your system injects inside data-feelings-list */
+.feelings-list>* {
+    padding: 12px 14px;
+    border-radius: 20px;
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.07);
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.8;
 }
 
 .bottom-icons {

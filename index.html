@@ -66,27 +66,31 @@
                     </div>
                 </div>
 
-                <form class="feelings-form" data-feelings-form>
+                <div class="interaction-card">
+                    <p class="feeling-notice" data-feeling-notice>
+                        تنبيه: رسالتك لن تظهر مباشرة، وستحتاج موافقة صاحب التصميم قبل نشرها للزوار.
+                    </p>
+
                     <div class="form-group">
                         <label for="feelingName">اسمك</label>
-                        <input id="feelingName" name="name" type="text" placeholder="اكتب اسمك" maxlength="50"
-                            required />
+                        <input id="feelingName" class="interaction-input" type="text" placeholder="اكتب اسمك"
+                            maxlength="60" data-feeling-name />
                     </div>
 
                     <div class="form-group">
                         <label for="feelingMessage">رسالتك</label>
-                        <textarea id="feelingMessage" name="message" placeholder="اكتب تهنئتك هنا..." maxlength="240"
-                            rows="4" required></textarea>
+                        <textarea id="feelingMessage" class="interaction-textarea" placeholder="اكتب تهنئتك هنا..."
+                            maxlength="220" rows="4" data-feeling-message></textarea>
                     </div>
 
-                    <button type="submit" class="feelings-btn">
-                        إرسال المشاعر
+                    <button type="button" class="interaction-submit" data-send-feeling>
+                        إرسال الرسالة
                     </button>
 
-                    <p class="feelings-note">
-                        سيتم عرض الرسالة بعد مراجعتها من صاحب التصميم.
-                    </p>
-                </form>
+                    <p class="interaction-message" data-feeling-result></p>
+                </div>
+
+                <div class="feelings-list" data-feelings-list></div>
             </section>
 
             <div class="bottom-icons" aria-hidden="true">
@@ -98,6 +102,39 @@
         </section>
 
     </main>
+
+    <script>
+        (function () {
+            var feelingsSection = document.querySelector('[data-feature="feelings"]');
+            if (!feelingsSection) return;
+
+            var notice = feelingsSection.querySelector('[data-feeling-notice]');
+            if (!notice) return;
+
+            function updateFeelingNotice() {
+                var approvalMode = feelingsSection.getAttribute('data-approval-mode');
+
+                if (!approvalMode || approvalMode.indexOf('{{') === 0) {
+                    approvalMode = 'manual';
+                }
+
+                if (approvalMode === 'auto') {
+                    notice.textContent = 'رسالتك ستظهر مباشرة بعد الإرسال.';
+                } else {
+                    notice.textContent = 'تنبيه: رسالتك لن تظهر مباشرة، وستحتاج موافقة صاحب التصميم قبل نشرها للزوار.';
+                }
+            }
+
+            updateFeelingNotice();
+
+            var observer = new MutationObserver(updateFeelingNotice);
+
+            observer.observe(feelingsSection, {
+                attributes: true,
+                attributeFilter: ['data-approval-mode']
+            });
+        })();
+    </script>
 </body>
 
 </html>
