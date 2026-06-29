@@ -172,7 +172,7 @@
             "type": "select",
             "formTab": "design",
             "group": "visibility",
-            "defaultValue": "no",
+            "defaultValue": "yes",
             "required": true,
             "options": [
                 {
