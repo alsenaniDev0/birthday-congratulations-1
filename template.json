@@ -162,7 +162,7 @@
             "required": true,
             "minLength": 5,
             "defaultValue": "نحتفل معكم بأجمل يوم",
-            "maxLength": 160,
+            "maxLength": 250,
             "type": "textarea",
             "label": "نص التهنئة"
         },
