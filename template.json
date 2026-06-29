@@ -197,11 +197,8 @@
         },
         {
             "key": "audioTrack",
-            "label": "رابط ملف الصوت",
-            "type": "text",
-            "defaultValue": "",
-            "placeholder": "ضع رابط ملف MP3 أو M4A",
-            "hint": "يفضل استخدام رابط مباشر لملف صوتي مثل mp3 أو m4a",
+            "label": "ملف صوتي",
+            "type": "audio",
             "visibleWhen": {
                 "field": "showAudio",
                 "equals": "yes"
