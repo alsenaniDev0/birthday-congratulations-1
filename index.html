@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <main class="birthday-page theme-{{gender}} show-person-{{showPersoneImage}} show-icon-{{showIcon}}">
+    <main
+        class="birthday-page theme-{{gender}} show-person-{{showPersoneImage}} show-icon-{{showIcon}} show-audio-{{showAudio}}">
 
         <div class="page-pattern" aria-hidden="true"></div>
 
@@ -27,6 +28,21 @@
             <div class="top-label">
                 <span class="top-icon">{{icon}}</span>
             </div>
+
+            <section class="audio-player-section" data-section="audio">
+                <div class="audio-player-card">
+                    <button type="button" class="audio-play-btn" data-audio-toggle aria-label="تشغيل الصوت">
+                        <span class="audio-play-icon" data-audio-icon>▶</span>
+                    </button>
+
+                    <div class="audio-player-info">
+                        <h2>{{audioTitle}}</h2>
+                        <p data-audio-status>اضغط لتشغيل الصوت</p>
+                    </div>
+
+                    <audio preload="none" src="{{audioTrack}}" data-audio-player></audio>
+                </div>
+            </section>
 
             <div class="photo-wrap">
                 <div class="photo-ring">
@@ -102,6 +118,55 @@
         </section>
 
     </main>
+
+    <script>
+        (function () {
+            var audioSection = document.querySelector('[data-section="audio"]');
+            if (!audioSection) return;
+
+            var audio = audioSection.querySelector('[data-audio-player]');
+            var button = audioSection.querySelector('[data-audio-toggle]');
+            var icon = audioSection.querySelector('[data-audio-icon]');
+            var status = audioSection.querySelector('[data-audio-status]');
+
+            if (!audio || !button) return;
+
+            function hasValidAudio() {
+                var src = audio.getAttribute('src');
+                return src && src.trim() !== '' && src.indexOf('{{') !== 0;
+            }
+
+            if (!hasValidAudio()) {
+                if (status) status.textContent = 'لم يتم إضافة ملف صوتي بعد';
+                button.disabled = true;
+                button.classList.add('is-disabled');
+                return;
+            }
+
+            button.addEventListener('click', function () {
+                if (audio.paused) {
+                    audio.play().then(function () {
+                        button.classList.add('is-playing');
+                        if (icon) icon.textContent = '❚❚';
+                        if (status) status.textContent = 'الصوت يعمل الآن';
+                    }).catch(function () {
+                        if (status) status.textContent = 'اضغط مرة أخرى لتشغيل الصوت';
+                    });
+                } else {
+                    audio.pause();
+                    button.classList.remove('is-playing');
+                    if (icon) icon.textContent = '▶';
+                    if (status) status.textContent = 'تم إيقاف الصوت مؤقتًا';
+                }
+            });
+
+            audio.addEventListener('ended', function () {
+                button.classList.remove('is-playing');
+                if (icon) icon.textContent = '▶';
+                if (status) status.textContent = 'انتهى الصوت';
+            });
+        })();
+    </script>
 
     <script>
         (function () {

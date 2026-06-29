@@ -165,6 +165,35 @@
             "maxLength": 160,
             "type": "textarea",
             "label": "نص التهنئة"
+        },
+        {
+            "key": "showAudio",
+            "label": "إظهار الصوت",
+            "type": "select",
+            "formTab": "design",
+            "group": "visibility",
+            "defaultValue": "no",
+            "required": true,
+            "options": [
+                {
+                    "label": "نعم",
+                    "value": "yes"
+                },
+                {
+                    "label": "لا",
+                    "value": "no"
+                }
+            ]
+        },
+        {
+            "key": "audioTitle",
+            "label": "عنوان الصوت",
+            "type": "text",
+            "defaultValue": "الصوت",
+            "visibleWhen": {
+                "field": "showAudio",
+                "equals": "yes"
+            }
         }
     ],
     "features": {
